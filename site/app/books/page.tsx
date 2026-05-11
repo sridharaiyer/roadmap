@@ -27,14 +27,14 @@ export default function Books() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">
-        Recommended Books
+        Books
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         {books.map((book) => (
           <div key={book.file} className="flex flex-col items-center text-center">
             <div className="relative w-48 h-64 mb-4 shadow-lg rounded-md overflow-hidden">
               <Image
-                src={`/roadmap/book_covers/${book.file}`}
+                src={`/book_covers/${book.file}`}
                 alt={book.title}
                 fill
                 className="object-cover"
