@@ -34,7 +34,7 @@ export default function Books() {
           <div key={book.file} className="flex flex-col items-center text-center">
             <div className="relative w-48 h-64 mb-4 shadow-lg rounded-md overflow-hidden">
               <Image
-                src={`/book_covers/${book.file}`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/book_covers/${book.file}`}
                 alt={book.title}
                 fill
                 className="object-cover"
