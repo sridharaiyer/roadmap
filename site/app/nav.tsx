@@ -26,10 +26,11 @@ export function Navigation() {
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
       <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-6">
-        <NavLink href="/">IBO Roadmap</NavLink>
-        <NavLink href="/books">Recommended Books</NavLink>
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/iboroadmap">IBO Roadmap</NavLink>
         <NavLink href="/habits">Habits</NavLink>
         <NavLink href="/phases">Phases</NavLink>
+        <NavLink href="/books">Books</NavLink>
         <NavLink href="/core-run">Daily Core Run</NavLink>
       </div>
     </nav>
