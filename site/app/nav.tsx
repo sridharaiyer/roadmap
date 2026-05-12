@@ -1,10 +1,42 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function Navigation() {
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/iboroadmap", label: "IBO Roadmap" },
+  { href: "/habits", label: "Habits" },
+  { href: "/phases", label: "Phases" },
+  { href: "/books", label: "Books" },
+  { href: "/core-run", label: "Daily Core Run" },
+  { href: "/income", label: "Income Calculator" },
+  { href: "/checklist", label: "Checklist" },
+];
+
+type NavigationProps = {
+  children: React.ReactNode;
+};
+
+export function Navigation({ children }: NavigationProps) {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
     const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
@@ -12,10 +44,11 @@ export function Navigation() {
     return (
       <Link
         href={href}
-        className={`transition-colors ${
+        onClick={() => setIsOpen(false)}
+        className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
           isActive
-            ? "text-blue-300 font-semibold border-b-2 border-blue-300 pb-1"
-            : "hover:text-blue-300"
+            ? "bg-slate-900 text-white shadow-sm shadow-slate-900/20"
+            : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
         }`}
       >
         {children}
@@ -24,17 +57,87 @@ export function Navigation() {
   }
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
-      <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-6">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/iboroadmap">IBO Roadmap</NavLink>
-        <NavLink href="/habits">Habits</NavLink>
-        <NavLink href="/phases">Phases</NavLink>
-        <NavLink href="/books">Books</NavLink>
-        <NavLink href="/core-run">Daily Core Run</NavLink>
-        <NavLink href="/income">Income Calculator</NavLink>
-        <NavLink href="/checklist">Checklist</NavLink>
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.14),_transparent_32%),linear-gradient(180deg,_#f8fafc_0%,_#eef2ff_100%)]">
+      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              aria-label="Open navigation menu"
+              className="relative inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:-translate-y-px hover:shadow-md"
+            >
+              <span className="relative block h-5 w-5">
+                <span className="absolute left-0 top-0 h-0.5 w-5 rounded-full bg-slate-900" />
+                <span className="absolute left-0 top-2 h-0.5 w-5 rounded-full bg-slate-900" />
+                <span className="absolute left-0 top-4 h-0.5 w-5 rounded-full bg-slate-900" />
+              </span>
+            </button>
+
+            <div className="min-w-0">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-slate-500">
+                Independent Business Owner
+              </p>
+              <h1 className="bg-gradient-to-r from-sky-600 via-fuchsia-500 to-amber-500 bg-clip-text text-2xl font-black tracking-tight text-transparent sm:text-3xl">
+                IBO Roadmap
+              </h1>
+            </div>
+          </div>
+
+
+        </div>
+      </header>
+
+      <div className="mx-auto flex max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+
+
+        <main className="min-w-0 flex-1 pb-6">{children}</main>
       </div>
-    </nav>
+
+      <div
+        className={`fixed inset-0 z-50 ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        aria-hidden={!isOpen}
+      >
+        <button
+          type="button"
+          aria-label="Close navigation menu"
+          onClick={() => setIsOpen(false)}
+          className={`absolute inset-0 bg-slate-950/45 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
+        />
+
+        <aside
+          className={`absolute left-0 top-0 h-full w-[86vw] max-w-sm border-r border-slate-200/60 bg-white/95 p-5 backdrop-blur-xl transition-transform duration-300 ease-out ${
+            isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full shadow-none"
+          }`}
+        >
+          <div className="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-slate-500">
+                Menu
+              </p>
+              <h2 className="mt-2 bg-gradient-to-r from-sky-600 via-fuchsia-500 to-amber-500 bg-clip-text text-2xl font-black tracking-tight text-transparent">
+                IBO Roadmap
+              </h2>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+            >
+              Close
+            </button>
+          </div>
+
+          <nav className="flex flex-col gap-2">
+            {links.map((link) => (
+              <NavLink key={link.href} href={link.href}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+        </aside>
+      </div>
+    </div>
   );
 }
