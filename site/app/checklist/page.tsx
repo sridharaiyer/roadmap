@@ -177,7 +177,7 @@ export default function Checklist() {
                 {/* Sticky header with name input */}
                 <div
                     className="
-    sticky top-0 z-50
+    sticky top-[77px] z-30
     mb-8
     rounded-b-3xl rounded-t-none md:rounded-3xl
         border-0 border-b border-slate-200 md:border

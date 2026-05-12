@@ -1,13 +1,13 @@
 export default function Phases() {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-      <div className="text-center mb-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-1 pb-2">
+      <div className="text-center mb-6">
         <h1 className="text-3xl md:text-5xl font-bold">Business Phases</h1>
         <p className="text-xl md:text-3xl font-semibold text-gray-400 mt-1">A → B → C → D</p>
       </div>
 
       {/* Phase cards - horizontal flow on large screens, vertical stack on small */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-4">
         {/* Phase A */}
         <div className="border-2 border-blue-600 rounded-lg overflow-hidden">
           <div className="bg-blue-600 text-white px-4 py-3">
