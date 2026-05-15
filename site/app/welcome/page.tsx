@@ -10,7 +10,7 @@ export default function RoadmapPage() {
         </h2>
       </div>
 
-      <p className="text-lg">
+      <p className="text-2xl">
         Congratulations! Earning a spot in this mentorship program is no small
         feat. It signifies that our leadership team recognizes your potential,
         your work ethic, and your commitment to building a life of significance.
@@ -21,16 +21,16 @@ export default function RoadmapPage() {
       <hr className="border-gray-300 dark:border-gray-700" />
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">
+        <h2 className="text-3xl font-semibold">
           The Path Ahead: What to Expect
         </h2>
-        <p>
+        <p className="text-xl">
           Transitioning into this role is about more than just understanding
           products—it&apos;s about adopting a{" "}
           <strong>CEO mindset</strong>. Here is how we will partner with you to
           scale your vision:
         </p>
-        <ul className="list-disc pl-6 space-y-2">
+        <ul className="list-disc pl-6 space-y-2 text-xl">
           <li>
             <strong>Direct Mentorship:</strong> You now have access to seasoned
             leaders who have already navigated the path you are on. We value
@@ -52,14 +52,14 @@ export default function RoadmapPage() {
       <hr className="border-gray-300 dark:border-gray-700" />
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">
+        <h2 className="text-3xl font-semibold">
           Three Pillars for Your First 90 Days
         </h2>
-        <p>
+        <p className="text-xl">
           To maximize this opportunity, we encourage you to focus on these core
           principles:
         </p>
-        <ol className="list-decimal pl-6 space-y-2">
+        <ol className="list-decimal pl-6 space-y-2 text-xl">
           <li>
             <strong>Be Coachable:</strong> The fastest way to success is to
             follow the footprints of those who have reached the destination. Stay
@@ -82,19 +82,19 @@ export default function RoadmapPage() {
       <hr className="border-gray-300 dark:border-gray-700" />
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">A Note on Professionalism</h2>
-        <p>
+        <h2 className="text-3xl font-semibold">A Note on Professionalism</h2>
+        <p className="text-xl">
           As you represent the team, we maintain a high standard of business
           etiquette. We focus on <strong>scalable business systems</strong> and
           professional presentation. Remember: we work hard, we work smart, and
           we represent this opportunity with the prestige it deserves.
         </p>
-        <blockquote className="border-l-4 border-gray-400 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400">
+        <blockquote className="border-l-4 border-gray-400 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400 text-xl">
           &ldquo;The size of your success is measured by the strength of your
           desire, the size of your dream, and how you handle disappointment
           along the way.&rdquo;
         </blockquote>
-        <p className="font-bold text-lg">
+        <p className="font-bold text-2xl">
           Welcome aboard. Let&apos;s get to work and make this your breakthrough
           year.
         </p>

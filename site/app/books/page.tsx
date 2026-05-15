@@ -105,7 +105,7 @@ const books = [
 
 export default function Books() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
+    <div className="max-w-6xl mx-auto px-6 py-3">
       <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">
         Books
       </h1>
