@@ -12,6 +12,7 @@ const links = [
   { href: "/books", label: "Books" },
   { href: "/core", label: "Core" },
   { href: "/income", label: "Income Calculator" },
+  { href: "/budgeting", label: "Budgeting" },
   { href: "/checklist", label: "Checklist" },
 ];
 
