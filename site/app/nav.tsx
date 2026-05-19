@@ -15,6 +15,7 @@ const links = [
   { href: "/budgeting", label: "Budgeting" },
   { href: "/checklist", label: "Checklist" },
   { href: "/products", label: "Products" },
+  { href: "/contacts", label: "Contacts" },
 ];
 
 type NavigationProps = {
